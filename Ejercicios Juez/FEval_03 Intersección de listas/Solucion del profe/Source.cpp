@@ -4,7 +4,7 @@
 using namespace std;
 
 /*
- * No necesitas editar nada a partir de aquÌ hacia abajo salvo, quiz·s, el nombre del fichero de datos
+ * No necesitas editar nada a partir de aqu√≠ hacia abajo salvo, quiz√°s, el nombre del fichero de datos
  */
 
 template<typename T>
@@ -24,7 +24,7 @@ bool resuelveCaso() {
     ListLinkedSingle<int> lista1 = leerLista<int>();
     ListLinkedSingle<int> lista2 = leerLista<int>();
 
-    //llamada a la funciÛn que debes hacer
+    //llamada a la funci√≥n que debes hacer
     lista1.interseccion(lista2);
 
     //escritura
