@@ -1,8 +1,8 @@
 /*
- * Implementación del TAD Lista mediante listas enlazadas simples.
- * Clase original de Manuel Montenegro. Adaptada por Ignacio Fábregas
+ * ImplementaciÃ³n del TAD Lista mediante listas enlazadas simples.
+ * Clase original de Manuel Montenegro. Adaptada por Ignacio FÃ¡bregas
  *
- * Versión con clase genérica, nodo fantasma, cabeza y cola.
+ * VersiÃ³n con clase genÃ©rica, nodo fantasma, cabeza y cola.
  */
 
 #ifndef __LIST_LINKED_SINGLE_PLUS_H
