@@ -1,8 +1,8 @@
 /*
- * Implementación del TAD Lista mediante listas enlazadas simples.
- * Clase original de Manuel Montenegro. Adaptada por Ignacio Fábregas
+ * ImplementaciÃ³n del TAD Lista mediante listas enlazadas simples.
+ * Clase original de Manuel Montenegro. Adaptada por Ignacio FÃ¡bregas
  *
- * Versión con clase genérica, nodo fantasma, cabeza y cola.
+ * VersiÃ³n con clase genÃ©rica, nodo fantasma, cabeza y cola.
  */
 
 #ifndef __LIST_LINKED_SINGLE_PLUS_H
@@ -38,7 +38,7 @@ public:
     void push_front(const T& elem) {
         Node* new_node = new Node{ elem, head->next };
         head->next = new_node;
-        if (tail == head) //si la lista era unitaria hay que cambiar también la cola
+        if (tail == head) //si la lista era unitaria hay que cambiar tambiÃ©n la cola
             tail = new_node;
     }
 
@@ -154,7 +154,7 @@ void ListLinkedSingle<T>::interseccion(const ListLinkedSingle<int>& other) {
         }
         else if (current->value < otro->value) {        // La lista tiene un elemento a eliminar.
             Node* aux = current;        // Guardamos el valor en aux;
-            if (current == tail) {      // Si estamos en el último nodo de la lista 1, hay que cambiar la referencia al anterior.
+            if (current == tail) {      // Si estamos en el Ãºltimo nodo de la lista 1, hay que cambiar la referencia al anterior.
                 tail = prev;
             }
             current = current->next;        // Avanzamos.
