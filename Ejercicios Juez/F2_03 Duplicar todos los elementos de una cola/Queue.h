@@ -1,7 +1,7 @@
 /**
- * ImplementaciÛn del TAD Cola utilizando una lista enlazada simple de nodos.
- * (c) Marco Antonio GÛmez MartÌn, 2012
- * Modificado por Ignacio F·bregas, 2022
+ * Implementaci√≥n del TAD Cola utilizando una lista enlazada simple de nodos.
+ * (c) Marco Antonio G√≥mez Mart√≠n, 2012
+ * Modificado por Ignacio F√°bregas, 2022
 */
 #ifndef __LINKED_LIST_QUEUE_H
 #define __LINKED_LIST_QUEUE_H
@@ -10,9 +10,9 @@
 #include <iostream>
 
 /**
- * ImplementaciÛn del TAD Cola utilizando una lista simple enlazada.
+ * Implementaci√≥n del TAD Cola utilizando una lista simple enlazada.
  * Las operaciones son:
- *  - EmptyQueue: -> Queue. Generadora implementada en el constructor sin par·metros.
+ *  - EmptyQueue: -> Queue. Generadora implementada en el constructor sin par√°metros.
  *  - push_back: Queue, Elem -> Queue. Generadora
  *  - pop_front: Queue - -> Queue. Modificadora parcial.
  *  - front: Queue - -> Elem. Observadora parcial.
@@ -23,7 +23,7 @@ template <class T>
 class Queue {
 public:
 
-	/** Constructor; operaciÛn EmptyQueue. O(1) */
+	/** Constructor; operaci√≥n EmptyQueue. O(1) */
 	Queue() : prim(nullptr), ult(nullptr), numElems(0) {
 	}
 
@@ -34,14 +34,14 @@ public:
 	}
 
 	/**
-	 * AÒade un elemento en la parte trasera de la cola. O(1)
+	 * A√±ade un elemento en la parte trasera de la cola. O(1)
 	 */
 	void push_back(const T& elem) {
 		Nodo* nuevo = new Nodo(elem, nullptr);
 		if (ult != nullptr)
 			ult->sig = nuevo;
 		ult = nuevo;
-		// Si la cola estaba vacÌa, el primer elemento es el que acabamos de aÒadir
+		// Si la cola estaba vac√≠a, el primer elemento es el que acabamos de a√±adir
 		if (prim == nullptr)
 			prim = nuevo;
 		numElems++;
@@ -49,7 +49,7 @@ public:
 
 	/**
 	 * Elimina el primer elemento de la cola.
-	 * OperaciÛn modificadora parcial, que falla si la cola est· vacÌa.
+	 * Operaci√≥n modificadora parcial, que falla si la cola est√° vac√≠a.
 	 * O(1)
 	 */
 	void pop_front() {
@@ -59,13 +59,13 @@ public:
 		prim = prim->sig;
 		delete aBorrar;
 		--numElems;
-		if (prim == nullptr) //si la cola queda vacÌa, no hay ˙ltimo
+		if (prim == nullptr) //si la cola queda vac√≠a, no hay √∫ltimo
 			ult = nullptr;
 	}
 
 	/**
 	 * Devuelve el primer elemento de la cola.
-	 * OperaciÛn observadora parcial, que falla si la cola est· vacÌa.
+	 * Operaci√≥n observadora parcial, que falla si la cola est√° vac√≠a.
 	 * O(1)
 	 */
 	const T& front() const {
@@ -74,18 +74,18 @@ public:
 		return prim->elem;
 	}
 
-	/** Devuelve true si la cola no tiene ning˙n elemento. O(1) */
+	/** Devuelve true si la cola no tiene ning√∫n elemento. O(1) */
 	bool empty() const {
 		return prim == nullptr;
 	}
 
-	/** Devuelve el n˙mero de elementos que hay en la cola. O(1) */
+	/** Devuelve el n√∫mero de elementos que hay en la cola. O(1) */
 	int size() const {
 		return numElems;
 	}
 
 	// //
-	// M…TODOS DE "FONTANERÕA" DE C++ QUE HACEN VERS¡TIL A LA CLASE
+	// M√âTODOS DE "FONTANER√çA" DE C++ QUE HACEN VERS√ÅTIL A LA CLASE
 	// //
 
 	/** Constructor copia. O(n) */
@@ -93,7 +93,7 @@ public:
 		copia(other);
 	}
 
-	/** Operador de asignaciÛn. O(n) */
+	/** Operador de asignaci√≥n. O(n) */
 	Queue<T>& operator=(const Queue<T>& other) {
 		if (this != &other) {
 			libera();
@@ -102,7 +102,7 @@ public:
 		return *this;
 	}
 
-	/** Operador de comparaciÛn. O(n) */
+	/** Operador de comparaci√≥n. O(n) */
 	bool operator==(const Queue<T>& rhs) const {
 		if (numElems != rhs.numElems)
 			return false;
@@ -177,8 +177,8 @@ private:
 
 	/**
 	 * Clase nodo que almacena internamente el elemento (de tipo T),
-	 * y un puntero al nodo siguiente, que podrÌa ser nullptr so
-	 * el nodo es el ˙ltimo de la lista enlazada.
+	 * y un puntero al nodo siguiente, que podr√≠a ser nullptr so
+	 * el nodo es el √∫ltimo de la lista enlazada.
 	 */
 	class Nodo {
 	public:
@@ -191,8 +191,8 @@ private:
 	};
 
 	/**
-	 * Elimina todos los nodos de la lista enlazada cuyo primer nodo se pasa como par·metro.
-	 * Se admite que el nodo sea nullptr (no habrÌa nada que liberar).
+	 * Elimina todos los nodos de la lista enlazada cuyo primer nodo se pasa como par√°metro.
+	 * Se admite que el nodo sea nullptr (no habr√≠a nada que liberar).
 	 */
 	static void libera(Nodo* prim) {
 		while (prim != nullptr) {
@@ -205,10 +205,10 @@ private:
 	/** Puntero al primer elemento. */
 	Nodo* prim;
 
-	/** Puntero al ˙ltimo elemento. */
+	/** Puntero al √∫ltimo elemento. */
 	Nodo* ult;
 
-	/** N˙mero de elementos */
+	/** N√∫mero de elementos */
 	int numElems;
 };
 
