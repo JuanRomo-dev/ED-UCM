@@ -8,7 +8,7 @@
 // Usuario que has utilizado en esta prueba:
 
 /////////////////////////////////////////////////////////
-// de aquí hacia abajo NO se puede modificar nada
+// de aquÃ­ hacia abajo NO se puede modificar nada
 
 #include <iostream>               
 #include <fstream>
