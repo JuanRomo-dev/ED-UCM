@@ -4,16 +4,16 @@
 using namespace std;
 
 /*
- * Implementa la función pedida. Puedes usar funciones auxiliares
+ * Implementa la funciÃ³n pedida. Puedes usar funciones auxiliares
  */
 
 
 bool esZurdo(const Arbin<char>& arbol, int& numHijos) {
-    if (arbol.esVacio()) {      // Si el árbol es vacío entonces es zurdo.
+    if (arbol.esVacio()) {      // Si el Ã¡rbol es vacÃ­o entonces es zurdo.
         numHijos = 0;
         return true;
     }
-    else if(arbol.hijoIz().esVacio() && arbol.hijoDr().esVacio()) {     // Si es una hoja entonces es zurdo y el número de hijos es 1.
+    else if(arbol.hijoIz().esVacio() && arbol.hijoDr().esVacio()) {     // Si es una hoja entonces es zurdo y el nÃºmero de hijos es 1.
         numHijos = 1;
         return true;
     }
@@ -25,13 +25,13 @@ bool esZurdo(const Arbin<char>& arbol, int& numHijos) {
             der = esZurdo(arbol.hijoDr(), nDer);        // Comprobamos si el hijo derecho es zurdo.
             numHijos = nIzq + nDer + 1;         // Actualizamos numHijos.
         }
-        return izq && der && nIzq > nDer;       // Comprobamos si los hijos son zurdos y si mas de la mitad de los descendientes están en el hijo izquierdo.
+        return izq && der && nIzq > nDer;       // Comprobamos si los hijos son zurdos y si mas de la mitad de los descendientes estÃ¡n en el hijo izquierdo.
     }
 }
 
 
  /*
-  * No necesitas editar nada a partir de aquí hacia abajo salvo la LLLAMADA a la función
+  * No necesitas editar nada a partir de aquÃ­ hacia abajo salvo la LLLAMADA a la funciÃ³n
   * o el nombre del fichero de datos
   */
 bool esZurdo(const Arbin<char>& arbol) {
