@@ -1,7 +1,7 @@
 /**
- * ImplementaciÛn din·mica del TAD Arbol Binario con conteo manual de referencias
- * (c) Marco Antonio GÛmez MartÌn, 2012
- * Modificado por Ignacio F·bregas, 2022
+ * Implementaci√≥n din√°mica del TAD Arbol Binario con conteo manual de referencias
+ * (c) Marco Antonio G√≥mez Mart√≠n, 2012
+ * Modificado por Ignacio F√°bregas, 2022
 */
 #ifndef __ARBIN_H
 #define __ARBIN_H
@@ -13,21 +13,21 @@
 #include <iostream>  // endl 
 
 /**
- * ImplementaciÛn din·mica del TAD Arbin utilizando
+ * Implementaci√≥n din√°mica del TAD Arbin utilizando
  * nodos con un puntero al hijo izquierdo y otro al
- * hijo derecho. La implementaciÛn permite comparticiÛn
+ * hijo derecho. La implementaci√≥n permite compartici√≥n
  * de estructura, manteniendola bajo control mediante
- * conteo de referencias. La implementaciÛn, sin embargo,
- * es bastante artesanal, pues para no complicar el cÛdigo
+ * conteo de referencias. La implementaci√≥n, sin embargo,
+ * es bastante artesanal, pues para no complicar el c√≥digo
  * excesivamente no se ha hecho uso de punteros inteligentes
- * que incrementen y decrementen autom·ticamente esas
+ * que incrementen y decrementen autom√°ticamente esas
  * referencias.
  *
  * Las operaciones son:
- * - ArbolVacio: -> Arbin. Generadora implementada en el constructor sin par·metros.
- * - Cons: Arbin, Elem, Arbin -> Arbin. Generadora implementada en un constructor con tres par·metros.
- * - hijoIz, hijoDr: Arbin - -> Arbin. Observadoras que devuelven el hijo izquiero o derecho de un ·rbol.
- * - esVacio: Arbin -> Bool. Observadora que devuelve si un ·rbol binario es vacÌo.
+ * - ArbolVacio: -> Arbin. Generadora implementada en el constructor sin par√°metros.
+ * - Cons: Arbin, Elem, Arbin -> Arbin. Generadora implementada en un constructor con tres par√°metros.
+ * - hijoIz, hijoDr: Arbin - -> Arbin. Observadoras que devuelven el hijo izquiero o derecho de un √°rbol.
+ * - esVacio: Arbin -> Bool. Observadora que devuelve si un √°rbol binario es vac√≠o.
  */
 
 template <typename T>
@@ -49,7 +49,7 @@ public:
 		ra->addRef();
 	}
 
-	/** Destructor; elimina la estructura jer·rquica de nodos. */
+	/** Destructor; elimina la estructura jer√°rquica de nodos. */
 	~Arbin() {
 		libera();
 		ra = nullptr;
@@ -58,7 +58,7 @@ public:
 	/**
 	 * Devuelve el elemento almacenado en la raiz
 	 * error raiz(ArbolVacio)
-	 * @return Elemento en la raÌz.
+	 * @return Elemento en la ra√≠z.
 	 */
 	const T& raiz() const {
 		if (esVacio())
@@ -67,8 +67,8 @@ public:
 	}
 
 	/**
-	 * Devuelve el sub·rbol izquierdo compartiendo memoria
-	 * Es una operaciÛn parcial (falla con el ·rbol vacÌo).
+	 * Devuelve el sub√°rbol izquierdo compartiendo memoria
+	 * Es una operaci√≥n parcial (falla con el √°rbol vac√≠o).
 	*/
 	Arbin hijoIz() const {
 		if (esVacio())
@@ -77,8 +77,8 @@ public:
 	}
 
 	/**
-	 * Devuelve el sub·rbol derecho compartiendo memoria
-	 * Es una operaciÛn parcial (falla con el ·rbol vacÌo).
+	 * Devuelve el sub√°rbol derecho compartiendo memoria
+	 * Es una operaci√≥n parcial (falla con el √°rbol vac√≠o).
 	*/
 	Arbin hijoDr() const {
 		if (esVacio())
@@ -86,13 +86,13 @@ public:
 		return Arbin(ra->dr);
 	}
 
-	/** OperaciÛn observadora; devuelve si el ·rbol es vacÌo. */
+	/** Operaci√≥n observadora; devuelve si el √°rbol es vac√≠o. */
 	bool esVacio() const {
 		return ra == nullptr;
 	}
 
 	// //
-	// RECORRIDOS SOBRE EL ¡RBOL
+	// RECORRIDOS SOBRE EL √ÅRBOL
 	// //
 
 	/** Devolvemos un puntero a lista */
@@ -137,23 +137,23 @@ public:
 	// OTRAS OPERACIONES OBSERVADORAS
 	// //
 
-	/** Devuelve el n˙mero de nodos de un ·rbol. */
+	/** Devuelve el n√∫mero de nodos de un √°rbol. */
 	unsigned int numNodos() const {
 		return numNodosAux(ra);
 	}
 
-	/** Devuelve la talla del ·rbol. */
+	/** Devuelve la talla del √°rbol. */
 	unsigned int talla() const {
 		return tallaAux(ra);
 	}
 
-	/** Devuelve el n˙mero de hojas de un ·rbol. */
+	/** Devuelve el n√∫mero de hojas de un √°rbol. */
 	unsigned int numHojas() const {
 		return numHojasAux(ra);
 	}
 
 	// //
-	// M…TODOS DE "FONTANERÕA" DE C++ QUE HACEN VERS¡TIL
+	// M√âTODOS DE "FONTANER√çA" DE C++ QUE HACEN VERS√ÅTIL
 	// A LA CLASE
 	// //
 
@@ -162,7 +162,7 @@ public:
 		copia(other);
 	}
 
-	/** Operador de asignaciÛn */
+	/** Operador de asignaci√≥n */
 	Arbin<T>& operator=(const Arbin<T>& other) {
 		if (this != &other) {
 			libera();
@@ -171,7 +171,7 @@ public:
 		return *this;
 	}
 
-	/** Operadores de comparaciÛn. */
+	/** Operadores de comparaci√≥n. */
 	bool operator==(const Arbin<T>& rhs) const {
 		return comparaAux(ra, rhs.ra);
 	}
@@ -180,7 +180,7 @@ public:
 		return !(*this == rhs);
 	}
 
-	/** Escritura de un ·rbol
+	/** Escritura de un √°rbol
 	 *  Adaptado de "ADTs, DataStructures, and Problem Solving with C++",
 	 *  Larry Nyhoff, Person, 2015
 	 */
@@ -191,7 +191,7 @@ public:
 		return o;
 	}
 
-	/** Lectura de ·rboles en preorden */
+	/** Lectura de √°rboles en preorden */
 	static Arbin<T> leerArbol(const T& repVacio) {
 		T elem;
 		std::cin >> elem;
@@ -204,7 +204,7 @@ public:
 		}
 	}
 
-	/** Lectura de ·rboles en inorden */
+	/** Lectura de √°rboles en inorden */
 	static Arbin<T> leerArbolInorden(const T& repVacio) {
 		T c;
 		std::cin >> c;
@@ -225,13 +225,13 @@ public:
 
 
 protected:
-	/** para la escritura del ·rbol */
+	/** para la escritura del √°rbol */
 	static const int TREE_INDENTATION = 4;
 
 	/**
 	 * Clase nodo que almacena internamente el elemento (de tipo T),
-	 * y los punteros al hijo izquierdo y al hijo derecho, asÌ
-	 * como el n˙mero de referencias que hay.
+	 * y los punteros al hijo izquierdo y al hijo derecho, as√≠
+	 * como el n√∫mero de referencias que hay.
 	 */
 	class Nodo {
 	public:
@@ -255,8 +255,8 @@ protected:
 	};
 
 	/**
-	 * Constructor protegido que crea un ·rbol a partir de una estructura jer·rquica existente.
-	 * Esa estructura jer·rquica SE COMPARTE, por lo que se aÒade la referencia.
+	 * Constructor protegido que crea un √°rbol a partir de una estructura jer√°rquica existente.
+	 * Esa estructura jer√°rquica SE COMPARTE, por lo que se a√±ade la referencia.
 	 * Se utiliza en hijoIz e hijoDr.
 	 */
 	Arbin(Nodo* raiz) : ra(raiz) {
@@ -264,7 +264,7 @@ protected:
 			ra->addRef();
 	}
 
-	/** OperaciÛn auxiliar para liberar la memoria */
+	/** Operaci√≥n auxiliar para liberar la memoria */
 	void libera() {
 		libera(ra);
 	}
@@ -278,7 +278,7 @@ protected:
 	}
 
 	// //
-	// M…TODOS AUXILIARES PARA LOS RECORRIDOS
+	// M√âTODOS AUXILIARES PARA LOS RECORRIDOS
 	// //
 
 	static void preordenAcu(Nodo* ra, List<T>& acu) {
@@ -314,7 +314,7 @@ protected:
 	}
 
 	// //
-	// M…TODOS AUXILIARES (RECURSIVOS) DE OTRAS OPERACIONES
+	// M√âTODOS AUXILIARES (RECURSIVOS) DE OTRAS OPERACIONES
 	// OBSERVADORAS
 	// //
 
@@ -348,7 +348,7 @@ protected:
 private:
 
 	/**
-	 * Elimina todos los nodos de una estructura arbÛrea que comienza con el puntero ra.
+	 * Elimina todos los nodos de una estructura arb√≥rea que comienza con el puntero ra.
 	 * Se admite que el nodo sea nullptr
 	 */
 	static void libera(Nodo* ra) {
@@ -363,14 +363,14 @@ private:
 	}
 
 	/**
-	 * Compara dos estructuras jer·rquicas de nodos, dadas sus raices.
+	 * Compara dos estructuras jer√°rquicas de nodos, dadas sus raices.
 	 */
 	static bool comparaAux(Nodo* r1, Nodo* r2) {
 		if (r1 == r2)
 			return true;
 		else if ((r1 == nullptr) || (r2 == nullptr))
 			// En el if anterior nos aseguramos de que r1 != r2. Si uno es NULL, el
-			// otro entonces no lo ser·, luego son distintos.
+			// otro entonces no lo ser√°, luego son distintos.
 			return false;
 		else {
 			return (r1->elem == r2->elem) &&
@@ -381,7 +381,7 @@ private:
 
 protected:
 	/**
-	 * Puntero a la raÌz de la estructura jer·rquica de nodos.
+	 * Puntero a la ra√≠z de la estructura jer√°rquica de nodos.
 	 */
 	Nodo* ra;
 };
