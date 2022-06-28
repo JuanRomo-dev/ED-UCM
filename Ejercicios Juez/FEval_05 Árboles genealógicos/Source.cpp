@@ -12,14 +12,14 @@
 
 using namespace std;
 
-//Escrbe la función que resuelve el problema
+//Escrbe la funciÃ³n que resuelve el problema
 
 bool sonFamilia(const ArbinS<int>& padre, const ArbinS<int>& hijoI, const ArbinS<int>& hijoD) {
     return (!hijoI.esVacio() && padre.raiz() - hijoI.raiz() >= 18) && (hijoD.esVacio() || hijoI.raiz() - hijoD.raiz() >= 2);
 }
 
 bool esGenealogico(const ArbinS<int> &arbol, int& altura) {
-    if (arbol.esVacio()) {      // Caso base, si el árbol es vacío, entonces es genealógico con altura = 0.
+    if (arbol.esVacio()) {      // Caso base, si el Ã¡rbol es vacÃ­o, entonces es genealÃ³gico con altura = 0.
         altura = 0;
         return true;
     }
@@ -41,7 +41,7 @@ bool esGenealogico(const ArbinS<int> &arbol, int& altura) {
 }
 
 
-//No puedes cambiar nada salvo la llamada a la función y el nombre del fichero
+//No puedes cambiar nada salvo la llamada a la funciÃ³n y el nombre del fichero
 
 void resuelveCaso() {
     ArbinS<int> arbol = ArbinS<int>::leerArbol(-1);
