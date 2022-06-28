@@ -5,14 +5,14 @@
 //@ <answer>
 // Nombre :
 // Usiario del Juez de Clase :
-// Usuario del Juez de Exámenes :
+// Usuario del Juez de ExÃ¡menes :
 //@ </answer>
 
 #include <iostream>
 #include <fstream>
 #include "Arbin_Smart.h"
 
-//Añade las librerías que necesites
+//AÃ±ade las librerÃ­as que necesites
 //@ <answer>
 
 
@@ -21,25 +21,25 @@
 using namespace std;
 
 //-------------------------------------------------------
-//Escribe la solución. Puedes definir las funciones auxiliares
+//Escribe la soluciÃ³n. Puedes definir las funciones auxiliares
 // y tipos de datos que necesites.
 //@ <answer>
 
 bool esIntermedio(const int nodo, int sumaIzq, int sumaDer, int padre) {
-    return (padre != 0) && (nodo == abs(sumaIzq - sumaDer) % padre);        // El nodo es intermedio si el padre no es la raíz y el valor absoluto de la resta de las sumas módulo valor del padre es igual al nodo.
+    return (padre != 0) && (nodo == abs(sumaIzq - sumaDer) % padre);        // El nodo es intermedio si el padre no es la raÃ­z y el valor absoluto de la resta de las sumas mÃ³dulo valor del padre es igual al nodo.
 }
 
-int nodos_intermedio(const BinTree<int> arbol, int& suma, int padre) {       // Función que devuelve el número de nodos intermedios de un árbol.
-    if (arbol.empty()) {      // Caso base: Si el árbol es vacío, la suma es 0 y hay 0 nodos intermedios en él.
+int nodos_intermedio(const BinTree<int> arbol, int& suma, int padre) {       // FunciÃ³n que devuelve el nÃºmero de nodos intermedios de un Ã¡rbol.
+    if (arbol.empty()) {      // Caso base: Si el Ã¡rbol es vacÃ­o, la suma es 0 y hay 0 nodos intermedios en Ã©l.
         suma = 0;           
         return 0;
     }
     else {
         int nIntermediosIzq, nIntermediosDer, sumaIzq, sumaDer, nIntermedios;
-        nIntermediosIzq = nodos_intermedio(arbol.left(), sumaIzq, arbol.root());        //  Recursión por la izquierda 
-        nIntermediosDer = nodos_intermedio(arbol.right(), sumaDer, arbol.root());       //  Recursión por la derecha
+        nIntermediosIzq = nodos_intermedio(arbol.left(), sumaIzq, arbol.root());        //  RecursiÃ³n por la izquierda 
+        nIntermediosDer = nodos_intermedio(arbol.right(), sumaDer, arbol.root());       //  RecursiÃ³n por la derecha
         suma = sumaIzq + sumaDer + arbol.root();            // Calculamos la suma
-        nIntermedios = nIntermediosIzq + nIntermediosDer;   // Calculamos el número de nodos intermedios.
+        nIntermedios = nIntermediosIzq + nIntermediosDer;   // Calculamos el nÃºmero de nodos intermedios.
         if (esIntermedio(arbol.root(), sumaIzq, sumaDer, padre)) {      // Si el nodo es intermedio
             nIntermedios++;     // Aumentamos el contador.
         }
@@ -55,7 +55,7 @@ int nodos_intermedio(const BinTree<int>& arbol) {
 
 //@ </answer>
 //
-// ¡No modifiques nada debajo de esta línea!
+// Â¡No modifiques nada debajo de esta lÃ­nea!
 // ----------------------------------------------------------------
 void resuelveCaso() {
     BinTree<int> arbol = read_tree<int>(cin);
