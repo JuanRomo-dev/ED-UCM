@@ -1,7 +1,7 @@
 /**
- * ImplementaciÛn del TAD lista, utilizando una lista doblemente enlazada.
- * (c) Marco Antonio GÛmez MartÌn, 2012
- * Modificado por Ignacio F·bregas, 2022
+ * Implementaci√≥n del TAD lista, utilizando una lista doblemente enlazada.
+ * (c) Marco Antonio G√≥mez Mart√≠n, 2012
+ * Modificado por Ignacio F√°bregas, 2022
 */
 #ifndef __LIST_H
 #define __LIST_H
@@ -10,9 +10,9 @@
 #include <cassert>
 
 /**
- * ImplementaciÛn del TAD Lista utilizando una lista doblemente enlazada.
+ * Implementaci√≥n del TAD Lista utilizando una lista doblemente enlazada.
  * Las operaciones son:
- *    - EmptyList: -> List. Generadora implementada en el constructor sin par·metros.
+ *    - EmptyList: -> List. Generadora implementada en el constructor sin par√°metros.
  *    - push_front: List, Elem -> List. Generadora.
  *    - push_back: List, Elem -> List. Modificadora.
  *    - front: List - -> Elem. Observadora parcial
@@ -29,7 +29,7 @@ private:
 	/**
 	 * Clase nodo que almacena internamente el elemento (de tipo T),
 	 * y dos punteros, uno al nodo anterior y otro al nodo siguiente.
-	 * Ambos punteros podrÌan ser nullptr si el nodo es el primero y/o ˙ltimo de la lista enlazada.
+	 * Ambos punteros podr√≠an ser nullptr si el nodo es el primero y/o √∫ltimo de la lista enlazada.
 	 */
 	class Nodo {
 	public:
@@ -44,7 +44,7 @@ private:
 
 public:
 
-	/** Constructor; operaciÛn EmptyList. O(1) */
+	/** Constructor; operaci√≥n EmptyList. O(1) */
 	List() : prim(nullptr), ult(nullptr), numElems(0) {}
 
 	/** Destructor; elimina la lista doblemente enlazada. O(n) */
@@ -52,23 +52,23 @@ public:
 		libera();
 	}
 
-	/** AÒade un nuevo elemento en la cabeza de la lista. O(1) */
+	/** A√±ade un nuevo elemento en la cabeza de la lista. O(1) */
 	void push_front(const T& elem) {
 		prim = insertaElem(elem, nullptr, prim);
 		if (ult == nullptr)
 			ult = prim;
 	}
 
-	/** AÒade un nuevo elemento al final de la lista. O(1) */
+	/** A√±ade un nuevo elemento al final de la lista. O(1) */
 	void push_back(const T& elem) {
 		ult = insertaElem(elem, ult, nullptr);
-		if (prim == nullptr) //si la lista estaba vacÌa
+		if (prim == nullptr) //si la lista estaba vac√≠a
 			prim = ult;
 	}
 
 	/**
 	 * Devuelve el valor almacenado en la cabecera de la lista.
-	 * Es un error preguntar por el primero de una lista vacÌa.
+	 * Es un error preguntar por el primero de una lista vac√≠a.
 	 * O(1)
 	 */
 	const T& front() const {
@@ -78,8 +78,8 @@ public:
 	}
 
 	/**
-	 * Devuelve el valor almacenado en la ˙ltima posiciÛn de la lista (a la derecha).
-	 * Es un error preguntar por el primero de una lista vacÌa.
+	 * Devuelve el valor almacenado en la √∫ltima posici√≥n de la lista (a la derecha).
+	 * Es un error preguntar por el primero de una lista vac√≠a.
 	 * O(1)
 	 */
 	const T& back() const {
@@ -89,7 +89,7 @@ public:
 	}
 
 	/**
-	 * Elimina el primer elemento de la lista. Es un error intentar obtener el resto de una lista vacÌa.
+	 * Elimina el primer elemento de la lista. Es un error intentar obtener el resto de una lista vac√≠a.
 	 * O(1)
 	 */
 	void pop_front() {
@@ -98,12 +98,12 @@ public:
 		Nodo* aBorrar = prim;
 		prim = prim->sig;
 		borraElem(aBorrar);
-		if (prim == nullptr) //si la lista queda vacÌa, modificamos tambiÈn ult
+		if (prim == nullptr) //si la lista queda vac√≠a, modificamos tambi√©n ult
 			ult = nullptr;
 	}
 
 	/**
-	 * Elimina el ˙ltimo elemento de la lista. Es un error intentar obtener el inicio de una lista vacÌa.
+	 * Elimina el √∫ltimo elemento de la lista. Es un error intentar obtener el inicio de una lista vac√≠a.
 	 * O(1)
 	 */
 	void pop_back() {
@@ -112,24 +112,24 @@ public:
 		Nodo* aBorrar = ult;
 		ult = ult->ant;
 		borraElem(aBorrar);
-		if (ult == nullptr) //si la lista queda vacÌa, modificamos tambiÈn prim
+		if (ult == nullptr) //si la lista queda vac√≠a, modificamos tambi√©n prim
 			prim = nullptr;
 	}
 
-	/** OperaciÛn observadora para saber si una lista tiene o no elementos. O(1) */
+	/** Operaci√≥n observadora para saber si una lista tiene o no elementos. O(1) */
 	bool empty() const {
 		return prim == nullptr;
 	}
 
-	/** Devuelve el n˙mero de elementos que hay en la lista. O(1) */
+	/** Devuelve el n√∫mero de elementos que hay en la lista. O(1) */
 	unsigned int size() const {
 		return numElems;
 	}
 
 	/**
-	 * Devuelve el elemento i-Èsimo de la lista, teniendo en cuenta que el primer elemento (first())
-	 * es el elemento 0 y el ˙ltimo es size()-1, es decir idx est· en [0..size()-1].
-	 * OperaciÛn observadora parcial que puede fallar si se da un Ìndice incorrecto.
+	 * Devuelve el elemento i-√©simo de la lista, teniendo en cuenta que el primer elemento (first())
+	 * es el elemento 0 y el √∫ltimo es size()-1, es decir idx est√° en [0..size()-1].
+	 * Operaci√≥n observadora parcial que puede fallar si se da un √≠ndice incorrecto.
 	 * O(n)
 	*/
 	const T& at(unsigned int idx) const {
@@ -231,7 +231,7 @@ public:
 			return elem();
 		}
 
-		/** CÛdigo idÈntico al de elem() porque al ser const no se puede usar desde aquÌ  */
+		/** C√≥digo id√©ntico al de elem() porque al ser const no se puede usar desde aqu√≠  */
 		T& operator*() {
 			if (act == nullptr) throw InvalidAccessException();
 			return act->elem;
@@ -268,7 +268,7 @@ public:
 		return ConstIterator(prim);
 	}
 
-	/** Devuelve un iterador constante al final del recorrido (fuera de Èste). O(1) */
+	/** Devuelve un iterador constante al final del recorrido (fuera de √©ste). O(1) */
 	ConstIterator cend() const {
 		return ConstIterator(nullptr);
 	}
@@ -278,16 +278,16 @@ public:
 		return Iterator(prim);
 	}
 
-	/** Devuelve un iterador no constante al final del recorrido (fuera de Èste). O(1) */
+	/** Devuelve un iterador no constante al final del recorrido (fuera de √©ste). O(1) */
 	Iterator end() const {
 		return Iterator(nullptr);
 	}
 
 
 	/**
-	 * Permite eliminar de la lista el elemento apuntado por el iterador que se pasa como par·metro.
-	 * El iterador recibido DEJA DE SER V¡LIDO. En su lugar, deber· utilizarse el iterador devuelto, que
-	 * apuntar· al siguiente elemento al borrado.
+	 * Permite eliminar de la lista el elemento apuntado por el iterador que se pasa como par√°metro.
+	 * El iterador recibido DEJA DE SER V√ÅLIDO. En su lugar, deber√° utilizarse el iterador devuelto, que
+	 * apuntar√° al siguiente elemento al borrado.
 	 * @return Nuevo iterador colocado en el elemento siguiente al borrado.
 	 * O(1).
 	 */
@@ -312,18 +312,18 @@ public:
 	}
 
 	/**
-	 * MÈtodo para insertar un elemento en la lista en el punto marcado por el iterador.
-	 * En concreto, se aÒade _justo antes_ que el elemento actual. Por ejemplo, si it == l.primero(),
-	 * el elemento insertado se convierte en el primer elemento (y el iterador apuntar· al segundo).
+	 * M√©todo para insertar un elemento en la lista en el punto marcado por el iterador.
+	 * En concreto, se a√±ade _justo antes_ que el elemento actual. Por ejemplo, si it == l.primero(),
+	 * el elemento insertado se convierte en el primer elemento (y el iterador apuntar√° al segundo).
 	 * O(1).
 	 */
 	void insert(const T& elem, const Iterator& it) {
-		// Caso especial: aÒadir al principio
+		// Caso especial: a√±adir al principio
 		if (prim == it.act) {
 			push_front(elem);
 		}
 		else
-			// Caso especial: aÒadir al final
+			// Caso especial: a√±adir al final
 			if (it.act == nullptr) {
 				push_back(elem);
 			}
@@ -334,7 +334,7 @@ public:
 	}
 
 	// //
-	// M…TODOS DE "FONTANERÕA" DE C++ QUE HACEN VERS¡TIL A LA CLASE
+	// M√âTODOS DE "FONTANER√çA" DE C++ QUE HACEN VERS√ÅTIL A LA CLASE
 	// //
 
 	/** Constructor copia. O(n) */
@@ -342,7 +342,7 @@ public:
 		copia(other);
 	}
 
-	/** Operador de asignaciÛn. O(n) */
+	/** Operador de asignaci√≥n. O(n) */
 	List<T>& operator=(const List<T>& other) {
 		if (this != &other) {
 			libera();
@@ -351,7 +351,7 @@ public:
 		return *this;
 	}
 
-	/** Operador de comparaciÛn. O(n) */
+	/** Operador de comparaci√≥n. O(n) */
 	bool operator==(const List<T>& rhs) const {
 		if (numElems != rhs.numElems)
 			return false;
@@ -413,7 +413,7 @@ private:
 	}
 
 	/**
-	 * Elimina el nodo n. Si el nodo tiene nodos antes o despuÈs, actualiza sus punteros anterior y siguiente.
+	 * Elimina el nodo n. Si el nodo tiene nodos antes o despu√©s, actualiza sus punteros anterior y siguiente.
 	 * No se puede borrar un nodo que sea nullptr.
 	 * O(1)
 	 */
@@ -421,18 +421,18 @@ private:
 		assert(n != nullptr);
 		Nodo* pant = n->ant;
 		Nodo* psig = n->sig;
-		if (pant != nullptr)  //actualiza el puntero anterior si existÌa
+		if (pant != nullptr)  //actualiza el puntero anterior si exist√≠a
 			pant->sig = psig;
-		if (psig != nullptr)  //actualiza el puntero siguiente si existÌa
+		if (psig != nullptr)  //actualiza el puntero siguiente si exist√≠a
 			psig->ant = pant;
 		numElems--;
 		delete n;
 	}
 
 	/**
-	 * Elimina todos los nodos de la lista enlazada cuyo primer nodo se pasa como par·metro.
-	 * Se admite que el nodo sea nullptr (no habr· nada que liberar).
-	 * En caso de pasarse un nodo v·lido, debe ser el primer nodo de la lista
+	 * Elimina todos los nodos de la lista enlazada cuyo primer nodo se pasa como par√°metro.
+	 * Se admite que el nodo sea nullptr (no habr√° nada que liberar).
+	 * En caso de pasarse un nodo v√°lido, debe ser el primer nodo de la lista
 	 */
 	static void libera(Nodo* n) {
 		//comprobamos que es el puntero al primer elemento
@@ -444,10 +444,10 @@ private:
 		}
 	}
 
-	// Puntero al primer y ˙ltimo elemento
+	// Puntero al primer y √∫ltimo elemento
 	Nodo* prim, * ult;
 
-	// N˙mero de elementos (n˙mero de nodos entre prim y ult)
+	// N√∫mero de elementos (n√∫mero de nodos entre prim y ult)
 	unsigned int numElems;
 };
 
