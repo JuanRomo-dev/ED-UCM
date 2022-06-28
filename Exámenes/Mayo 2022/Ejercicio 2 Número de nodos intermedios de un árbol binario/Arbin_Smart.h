@@ -10,7 +10,7 @@
 #include <stack>
 
 
-// Implementación de árboles binarios
+// ImplementaciÃ³n de Ã¡rboles binarios
 
 template <class T> class BinTree {
 
