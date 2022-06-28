@@ -1,6 +1,6 @@
 /*
- * Definici髇 de algunas excepciones de las distintas implementaciones de los TADs.
- * (c) Marco Antonio G髆ez Mart韓, 2012
+ * Definici贸n de algunas excepciones de las distintas implementaciones de los TADs.
+ * (c) Marco Antonio G贸mez Mart铆n, 2012
 */
 
 #ifndef __EXCEPCIONES_H
@@ -31,7 +31,7 @@ inline std::ostream& operator<<(std::ostream& out, const ExcepcionTAD& e) {
 }
 
 /*
- * Macro para declarar las clases de tipo excepci髇 que heredan
+ * Macro para declarar las clases de tipo excepci贸n que heredan
  * de ExcepcionConMensaje.
  * Evita escribir muchas veces lo mismo...
  */
@@ -44,33 +44,33 @@ Excepcion() {}; \
 Excepcion(const std::string &msg) : ExcepcionTAD(msg) {} \
 };
 
- /** Excepci髇 generada por algunas operaciones de las pilas. */
+ /** Excepci贸n generada por algunas operaciones de las pilas. */
 DECLARA_EXCEPCION(EmptyStackException);
 
-/** Excepci髇 generada por algunas operaciones de las pilas. */
+/** Excepci贸n generada por algunas operaciones de las pilas. */
 DECLARA_EXCEPCION(FullStackException);
 
-/** Excepci髇 generada por algunas de las operaciones de las colas. */
+/** Excepci贸n generada por algunas de las operaciones de las colas. */
 DECLARA_EXCEPCION(EmptyQueueException);
 
-/** Excepci髇 generada por algunas operaciones de las colas dobles. */
+/** Excepci贸n generada por algunas operaciones de las colas dobles. */
 DECLARA_EXCEPCION(EmptyDequeException);
 
-/** Excepci髇 generada por algunas operaciones de las listas. */
+/** Excepci贸n generada por algunas operaciones de las listas. */
 DECLARA_EXCEPCION(EmptyListException);
 
 /**
- * Excepci髇 generada por accesos incorrectos a las listas
- * (tanto a un n鷐ero de elemento incorrecto como por mal manejo de los iteradores).
+ * Excepci贸n generada por accesos incorrectos a las listas
+ * (tanto a un n煤mero de elemento incorrecto como por mal manejo de los iteradores).
  */
 DECLARA_EXCEPCION(InvalidAccessException);
 
-/** Excepci髇 generada por algunas operaciones de los 醨boles binarios.*/
+/** Excepci贸n generada por algunas operaciones de los 谩rboles binarios.*/
 DECLARA_EXCEPCION(EArbolVacio);
 
 /**
- * Excepci髇 generada por algunas operaciones de los diccionarios y
- * 醨boles de b鷖queda.
+ * Excepci贸n generada por algunas operaciones de los diccionarios y
+ * 谩rboles de b煤squeda.
  */
 DECLARA_EXCEPCION(EClaveErronea);
 
