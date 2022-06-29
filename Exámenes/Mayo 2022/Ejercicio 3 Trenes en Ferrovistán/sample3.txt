@@ -1,0 +1,30 @@
+nueva_linea A
+nueva_linea B
+nueva_estacion A Sevistan 10
+nueva_estacion A Cadistan 50
+nueva_estacion B Malaguistan 30
+nueva_linea C
+nueva_estacion C Sevistan 10
+nueva_estacion C Malaguistan 20
+nueva_estacion C Cordobistan 40
+lineas_de Sevistan
+proxima_estacion A Sevistan
+proxima_estacion B Sevistan
+proxima_estacion C Sevistan
+eliminar_estacion Malaguistan
+proxima_estacion C Sevistan
+FIN
+nueva_linea A
+nueva_linea A
+nueva_linea B
+nueva_estacion A Almeristan 10
+nueva_estacion A Almeristan 20
+nueva_estacion A Granadistan 10
+nueva_estacion A Almeristan 10
+eliminar_estacion Inexistan
+lineas_de Inexistan
+proxima_estacion A Almeristan
+proxima_estacion B Almeristan
+proxima_estacion C Almeristan
+proxima_estacion A Inexistan
+FIN
