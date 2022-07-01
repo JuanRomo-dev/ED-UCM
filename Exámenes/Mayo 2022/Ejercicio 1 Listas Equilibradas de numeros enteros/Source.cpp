@@ -5,14 +5,14 @@
 //@ <answer>
 // Nombre :
 // Usiario del Juez de Clase :
-// Usuario del Juez de Exámenes :
+// Usuario del Juez de ExÃ¡menes :
 //@ </answer>
 
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <list>
-//Añade las librerías que necesites:
+//AÃ±ade las librerÃ­as que necesites:
 //@ <answer>
 #include <stack>
 //@ </answer>
@@ -22,7 +22,7 @@ using namespace std;
 
 
 //-------------------------------------------------------
-//Rellena adecuadamente la función y RAZONA el coste
+//Rellena adecuadamente la funciÃ³n y RAZONA el coste
 //@ <answer>
 
 void reconstruir(list<int>& lista) {
@@ -53,14 +53,14 @@ void reconstruir(list<int>& lista) {
     while (!pila.empty()) {     // Vaciamos la pila.
         int valor = pila.top();
         pila.pop();
-        lista.push_back(valor);     // Añadimos todos los valores negativos.
+        lista.push_back(valor);     // AÃ±adimos todos los valores negativos.
     }
 }
 
 
 //@ </answer>
 //
-// ¡No modifiques nada debajo de esta línea!
+// Â¡No modifiques nada debajo de esta lÃ­nea!
 // ----------------------------------------------------------------
 
 bool resuelveCaso() {
